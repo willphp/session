@@ -1,5 +1,5 @@
 # Session组件
-Session组件通过加密cookie数据提高网站安全性
+Session组件处理网站session,引擎包括File、Memcache、Redis,支持统一调用接口
 
 #开始使用
 
@@ -59,6 +59,7 @@ config/session.php配置文件示例如下：
     Session::flush(); 
 
 ####闪存
+
 通过 flash 设置的数据会在下次请求结束时自动删除。	
 
 	Session::flash('home', '113344.com');
