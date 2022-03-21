@@ -1,0 +1,31 @@
+{
+  "name": "willphp/session",
+  "description": "session组件用于网站session管理",
+  "keywords": [
+    "willphp",
+    "一鱼框架",
+    "session"
+  ],
+  "homepage": "http://www.113344.com/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "no-mind",
+      "email": "24203741@qq.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.6.0",
+    "willphp/config": "~1.0",
+    "willphp/cookie": "~1.0"
+  },
+  "autoload": {
+    "files": [
+      "src/helper.php"
+    ],
+    "psr-4": {
+      "willphp\\session\\": "src"
+    }
+  }
+}
