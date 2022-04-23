@@ -10,7 +10,7 @@
 namespace willphp\session\build;
 use willphp\config\Config;
 /**
- * Memcache session处理
+ * Memcache session澶勭悊
  * Class MemcacheHandler
  * @package willphp\session
  */
@@ -18,7 +18,7 @@ class MemcacheHandler implements InterfaceSession {
 	use Base;
 	private $memcache;	
     /**
-     * 连接
+     * 杩炴帴
      */
 	public function connect() {
 		$options = Config::get('session.memcache');
@@ -26,20 +26,20 @@ class MemcacheHandler implements InterfaceSession {
 		$this->memcache->connect($options['host'], $options['port']);
 	}
 	/**
-     * 读取数据
+     * 璇诲彇鏁版嵁
      */
 	public function read() {
 		$data = $this->memcache->get($this->session_id);		
 		return $data? json_decode($data, true) : [];
 	}
 	/**
-     * 保存数据
+     * 淇濆瓨鏁版嵁
      */
 	public function write() {
 		return $this->memcache->set($this->session_id, json_encode($this->items, JSON_UNESCAPED_UNICODE));
 	}
 	/**
-     * 垃圾回收
+     * 鍨冨溇鍥炴敹
      */
 	public function gc() {}
 }

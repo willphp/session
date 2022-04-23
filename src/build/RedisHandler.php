@@ -10,7 +10,7 @@
 namespace willphp\session\build;
 use willphp\config\Config;
 /**
- * Redis session处理
+ * Redis session澶勭悊
  * Class RedisHandler
  * @package willphp\session
  */
@@ -18,7 +18,7 @@ class RedisHandler implements InterfaceSession {
 	use Base;
 	private $redis;
     /**
-     * 连接
+     * 杩炴帴
      */
 	public function connect() {
 		$config = Config::get('session.redis');
@@ -30,20 +30,20 @@ class RedisHandler implements InterfaceSession {
 		$this->redis->select((int) $config['database']);
 	}
 	/**
-     * 读取数据
+     * 璇诲彇鏁版嵁
      */
 	public function read() {
 		$data = $this->redis->get( $this->session_id );
 		return $data? json_decode($data, true) : [];
 	}
 	/**
-     * 保存数据
+     * 淇濆瓨鏁版嵁
      */
 	public function write() {
 		return $this->redis->set($this->session_id, json_encode($this->items, JSON_UNESCAPED_UNICODE));
 	}
 	/**
-     * 垃圾回收
+     * 鍨冨溇鍥炴敹
      */
 	public function gc() {}
 }

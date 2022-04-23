@@ -16,12 +16,12 @@ use willphp\cookie\Cookie;
  */
 trait Base {
 	protected $session_id; //session ID
-	protected $session_name; //session Ãû³Æ
-	protected $expire; //¹ýÆÚÊ±¼ä
-	protected $items = []; //session Êý¾Ý
-	static protected $startTime; //¿ªÊ¼Ê±¼ä
+	protected $session_name; //session åç§°
+	protected $expire; //è¿‡æœŸæ—¶é—´
+	protected $items = []; //session æ•°æ®
+	static protected $startTime; //å¼€å§‹æ—¶é—´
     /**
-     * SESSION Æô¶¯Æ÷
+     * SESSION å¯åŠ¨å™¨
      * @return $this
      */	
 	public function bootstrap()	{
@@ -37,7 +37,7 @@ trait Base {
 		return $this;
 	}
     /**
-     * »ñÈ¡SESSION_ID
+     * èŽ·å–SESSION_ID
      * @return string
      */	
 	final protected function getSessionId() {
@@ -49,7 +49,7 @@ trait Base {
 		return $id;
 	}
     /**
-     * ¼ì²âÊÇ·ñ´æÔÚ
+     * æ£€æµ‹æ˜¯å¦å­˜åœ¨
      * @param $name
      * @return bool
      */	
@@ -57,7 +57,7 @@ trait Base {
 		return isset($this->items[$name]);
 	}
     /**
-     * ÅúÁ¿ÉèÖÃ
+     * æ‰¹é‡è®¾ç½®
      * @param $data
      */
 	public function batch($data) {
@@ -66,9 +66,9 @@ trait Base {
 		}
 	}
     /**
-     * ÉèÖÃÊý¾Ý
-     * @param string $name  Ãû³Æ(Ö§³ÖÃû³Æ.Ãû³Æ)
-     * @param mixed  $value Öµ
+     * è®¾ç½®æ•°æ®
+     * @param string $name  åç§°(æ”¯æŒåç§°.åç§°)
+     * @param mixed  $value å€¼
      * @return mixed
      */
 	public function set($name, $value) {
@@ -87,9 +87,9 @@ trait Base {
 		return false;
 	}
     /**
-     * »ñÈ¡sessionÊý¾Ý
-     * @param string $name Ãû³Æ(Ö§³ÖÃû³Æ.Ãû³Æ)
-     * @param string $value Ä¬ÈÏÖµ
+     * èŽ·å–sessionæ•°æ®
+     * @param string $name åç§°(æ”¯æŒåç§°.åç§°)
+     * @param string $value é»˜è®¤å€¼
      * @return null
      */
 	public function get($name = '', $value = null) {
@@ -105,7 +105,7 @@ trait Base {
 		return $tmp;
 	}
     /**
-     * É¾³ý
+     * åˆ é™¤
      * @param $name
      * @return bool
      */
@@ -116,14 +116,14 @@ trait Base {
 		return true;
 	}
     /**
-     * »ñÈ¡ËùÓÐ
+     * èŽ·å–æ‰€æœ‰
      * @return mixed
      */
 	public function all() {
 		return $this->items;
 	}
     /**
-     * Çå³ýËùÓÐ(ÉÁ´æÊý¾Ý²»É¾³ý)
+     * æ¸…é™¤æ‰€æœ‰(é—ªå­˜æ•°æ®ä¸åˆ é™¤)
      * @return bool
      */
 	public function flush() {
@@ -131,7 +131,7 @@ trait Base {
 		return true;
 	}
     /**
-     * ÉÁ´æ¹ÜÀí
+     * é—ªå­˜ç®¡ç†
      * @param        $name
      * @param string $value
      * @return bool|mixed|void
@@ -158,7 +158,7 @@ trait Base {
 		return $this->set('_FLASH_.'.$name, [$value, self::$startTime]);
 	}
     /**
-     * Çå³ýÎÞÐ§ÉÁ´æ
+     * æ¸…é™¤æ— æ•ˆé—ªå­˜
      */
 	public function clearFlash() {
 		$flash = $this->flash();
@@ -169,7 +169,7 @@ trait Base {
 		}
 	}
     /**
-     * ¹Ø±ÕÐ´Èë»á»°Êý¾Ý,Í¬Ê±Ö´ÐÐÀ¬»øÇåÀí
+     * å…³é—­å†™å…¥ä¼šè¯æ•°æ®,åŒæ—¶æ‰§è¡Œåžƒåœ¾æ¸…ç†
      */
 	public function close() {
 		$this->write();
@@ -178,7 +178,7 @@ trait Base {
 		}
 	}
     /**
-     * Îö¹¹º¯Êý
+     * æžæž„å‡½æ•°
      */
 	public function __destruct() {
 		$this->clearFlash();

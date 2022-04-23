@@ -10,9 +10,9 @@
 namespace willphp\session;
 use willphp\framework\build\Provider;
 class SessionProvider extends Provider {
-	public $defer = false; //ÑÓ³Ù¼ÓÔØ	
+	public $defer = false; //å»¶è¿ŸåŠ è½½	
 	public function boot() {		
-		Session:bootstrap(); //Æô¶¯session
+		Session::bootstrap();
 	}
 	public function register() {
 		$this->app->single('Session', function () {

@@ -9,7 +9,7 @@
  |-------------------------------------------------------------------------*/
 namespace willphp\session\build;
 /**
- * Session处理接口
+ * Session澶勭悊鎺ュ彛
  * Interface InterfaceCache
  * @package willphp\cache\build
  */
