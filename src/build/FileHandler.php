@@ -3,7 +3,7 @@
  | Software: [WillPHP framework]
  | Site: www.113344.com
  |--------------------------------------------------------------------------
- | Author: no-mind <24203741@qq.com>
+ | Author: 无念 <24203741@qq.com>
  | WeChat: www113344
  | Copyright (c) 2020-2022, www.113344.com. All Rights Reserved.
  |-------------------------------------------------------------------------*/
@@ -17,7 +17,6 @@ class FileHandler implements InterfaceSession {
 		$dir = Config::get('session.file.path');
 		if (!is_dir($dir)) {
 			mkdir($dir, 0755, true);
-			//file_put_contents($dir.'/index.html', '');
 		}
 		$this->dir = realpath($dir);
 		$this->file = $this->dir.'/'.$this->session_id.'.php';	

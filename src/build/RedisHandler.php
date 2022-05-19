@@ -3,7 +3,7 @@
  | Software: [WillPHP framework]
  | Site: www.113344.com
  |--------------------------------------------------------------------------
- | Author: no-mind <24203741@qq.com>
+ | Author: 无念 <24203741@qq.com>
  | WeChat: www113344
  | Copyright (c) 2020-2022, www.113344.com. All Rights Reserved.
  |-------------------------------------------------------------------------*/
@@ -33,7 +33,7 @@ class RedisHandler implements InterfaceSession {
      * 读取数据
      */
 	public function read() {
-		$data = $this->redis->get( $this->session_id );
+		$data = $this->redis->get($this->session_id );
 		return $data? json_decode($data, true) : [];
 	}
 	/**
